@@ -1,0 +1,9 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5 # Definida por padrão
+  database: teste2
+  username: postgres
+  password: postgres
+  host: railsondocker-main-postgres-1
+  port: 5432
