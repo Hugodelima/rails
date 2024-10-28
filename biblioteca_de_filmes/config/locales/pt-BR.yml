@@ -5,7 +5,17 @@ pt-BR:
 
     attributes:
       index: Lista de filmes
+      create: Novo Filme
+      show: Mostrar Este Filme
+      edit: Editar Este Filme
+      editH1: Editar Filme
+      back: Voltar Para Tela de Filmes
+      delete: Deletar este Filme
       movie:
         title: Título
         decription: Descrição
         release_year: Data de lançamento
+    helpers:
+      submit:
+        create: "Criar %{model}"
+        update: "Atualizar %{model}"

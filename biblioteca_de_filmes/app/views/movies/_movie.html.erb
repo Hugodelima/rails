@@ -1,16 +1,16 @@
 <div id="<%= dom_id movie %>">
   <p>
-    <strong>Title:</strong>
+    <strong> <%= t('activerecord.attributes.movie.title')%> </strong>
     <%= movie.title %>
   </p>
 
   <p>
-    <strong>Description:</strong>
+    <strong><%= t('activerecord.attributes.movie.decription')%></strong>
     <%= movie.description %>
   </p>
 
   <p>
-    <strong>Release year:</strong>
+    <strong><%= t('activerecord.attributes.movie.release_year')%></strong>
     <%= movie.release_year %>
   </p>
 

@@ -12,21 +12,22 @@
   <% end %>
 
   <div>
-    <%= form.label :title, style: "display: block" %>
+    <%= form.label :title,t("activerecord.attributes.movie.title"), style: "display: block" %>
     <%= form.text_field :title %>
   </div>
 
   <div>
-    <%= form.label :description, style: "display: block" %>
+    <%= form.label :description,t("activerecord.attributes.movie.decription"), style: "display: block" %>
     <%= form.text_field :description %>
   </div>
 
   <div>
-    <%= form.label :release_year, style: "display: block" %>
+    <%= form.label :release_year,t("activerecord.attributes.movie.release_year"), style: "display: block" %>
     <%= form.date_field :release_year %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit t("activerecord.helpers.submit.#{movie.persisted? ? 'update' : 'create'}", model: t("activerecord.models.movie")) %>
+
   </div>
 <% end %>

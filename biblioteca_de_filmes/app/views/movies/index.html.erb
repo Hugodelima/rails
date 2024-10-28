@@ -4,15 +4,15 @@
 
 <%= button_to "Sair", destroy_user_session_path, method: :delete %>
 
-<h1><%= t('activerecord.attributes.index') %></h1>
+<h1><%= t('activerecord.attributes.index')%></h1>
 
 <div id="movies">
   <% @movies.each do |movie| %>
     <%= render movie %>
     <p>
-      <%= link_to "Show this movie", movie %>
+      <%= link_to t("activerecord.attributes.show"), movie %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New movie", new_movie_path %>
+<%= link_to t("activerecord.attributes.create"), new_movie_path %>
