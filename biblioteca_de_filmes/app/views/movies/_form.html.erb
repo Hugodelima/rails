@@ -30,4 +30,10 @@
     <%= form.submit t("activerecord.helpers.submit.#{movie.persisted? ? 'update' : 'create'}", model: t("activerecord.models.movie")) %>
 
   </div>
+  
+  <div class="field">
+    <%= form.label :photos %>
+    <%= form.file_field :photos, multiple: true, direct_upload:
+    true %>
+  </div>
 <% end %>

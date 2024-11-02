@@ -1,3 +1,11 @@
+<% if @movie && @movie.photos.attached? %>
+  <% @movie.photos.each do |photo| %>
+    <%= image_tag photo %>
+  <% end %>
+<% end %>
+
+
+
 <div id="<%= dom_id movie %>">
   <p>
     <strong> <%= t('activerecord.attributes.movie.title')%> </strong>
@@ -13,5 +21,4 @@
     <strong><%= t('activerecord.attributes.movie.release_year')%></strong>
     <%= movie.release_year %>
   </p>
-
 </div>
