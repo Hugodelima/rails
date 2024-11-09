@@ -25,15 +25,17 @@
     <%= form.label :release_year,t("activerecord.attributes.movie.release_year"), style: "display: block" %>
     <%= form.date_field :release_year %>
   </div>
-
-  <div>
-    <%= form.submit t("activerecord.helpers.submit.#{movie.persisted? ? 'update' : 'create'}", model: t("activerecord.models.movie")) %>
-
-  </div>
   
   <div class="field">
     <%= form.label :photos %>
     <%= form.file_field :photos, multiple: true, direct_upload:
     true %>
   </div>
+
+  <div>
+    <%= form.submit t("activerecord.helpers.submit.#{movie.persisted? ? 'update' : 'create'}", model: t("activerecord.models.movie")) %>
+
+  </div>
+  
+
 <% end %>

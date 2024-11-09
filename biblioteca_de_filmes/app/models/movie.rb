@@ -1,6 +1,5 @@
 class Movie < ApplicationRecord
     has_many_attached :photos
-
     validate :correct_photo_mime_type
     validate :photo_size_validation
 

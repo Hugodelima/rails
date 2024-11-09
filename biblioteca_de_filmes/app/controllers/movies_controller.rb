@@ -56,6 +56,14 @@ class MoviesController < ApplicationController
     end
   end
 
+  def destroy_photo
+    @movie = Movie.find(params[:id])
+    photo = @movie.photos.find_by_id(params[:photo_id])
+    photo.purge # Remove a foto do Active Storage
+    redirect_to movie_path(@movie), notice: 'Foto removida com
+    sucesso.'
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -65,15 +73,9 @@ class MoviesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def movie_params
-    params.require(:movie).permit(:title, :director, :release_date,photos: [])
+    params.require(:movie).permit(:title, :description, :release_year,photos: [])
   end
-  def destroy_photo
-    @movie = Movie.find(params[:id])
-    photo = @movie.photos.find_by_id(params[:photo_id])
-    photo.purge # Remove a foto do Active Storage
-    redirect_to movie_path(@movie), notice: 'Foto removida com
-    sucesso.'
-  end
+
 end
 
 

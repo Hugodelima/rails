@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   root 'movies#index'
   resources :movies do
     member do
-      delete 'photos/:photo_id', to: 'movies#destroy_photo', as:
-        'destroy_photo'
+      delete 'photos/:photo_id', to: 'movies#destroy_photo', as: 'destroy_photo'
     end
   end
+  
+
+
 end
