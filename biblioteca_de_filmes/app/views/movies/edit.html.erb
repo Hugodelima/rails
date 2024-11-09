@@ -1,10 +1,10 @@
-<h1><%=t("activerecord.attributes.editH1") %></h1>
+<h1 class='text-center'><%=t("activerecord.attributes.editH1") %></h1>
 
 <%= render "form", movie: @movie %>
 
 <br>
 
-<div>
-  <%= link_to t("activerecord.attributes.show"), @movie %> |
-  <%= link_to t("activerecord.attributes.back"), movies_path %>
+<div class="mt-3 text-center">
+  <%= link_to t("activerecord.attributes.show"), @movie, class: "btn btn-outline-info btn-sm me-3" %>
+  <%= link_to t("activerecord.attributes.back"), movies_path, class: "btn btn-outline-secondary btn-sm" %>
 </div>

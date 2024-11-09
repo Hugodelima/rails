@@ -1,18 +1,33 @@
-<p style="color: green"><%= notice %></p>
+<div class='container text-end'>
+  <p class="text-success"><%= notice %></p>
 
-<p> Olá <%=user_signed_in? ? current_user.email : 'visitante' %></p> 
-
-<%= button_to "Sair", destroy_user_session_path, method: :delete %>
-
-<h1><%= t('activerecord.attributes.index')%></h1>
-
-<div id="movies">
-  <% @movies.each do |movie| %>
-    <%= render movie %>
-    <p>
-      <%= link_to t("activerecord.attributes.show"), movie %>
-    </p>
-  <% end %>
+  <p class="mb-3">Olá <%= user_signed_in? ? current_user.email : 'visitante' %></p>
+  <%= button_to "Sair", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
 </div>
 
-<%= link_to t("activerecord.attributes.create"), new_movie_path %>
+<div class="container text-center">
+
+
+  
+
+  <h1 class="mb-4"><%= t('activerecord.attributes.index') %></h1>
+
+  <div id="movies" class="row justify-content-center g-4">
+    <% @movies.each do |movie| %>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card shadow-sm p-1">
+          <%= render movie %>
+          <div class="card-body">
+            <p>
+              <%= link_to t("activerecord.attributes.show"), movie, class: "btn btn-primary w-100" %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="mt-4">
+    <%= link_to t("activerecord.attributes.create"), new_movie_path, class: "btn btn-success" %>
+  </div>
+</div>

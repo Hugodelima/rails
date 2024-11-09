@@ -1,41 +1,38 @@
-<%= form_with(model: movie) do |form| %>
-  <% if movie.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+<div class="container">
+  <%= form_with(model: movie, class: "d-flex flex-column align-items-center") do |form| %>
+    <% if movie.errors.any? %>
+      <div class="alert alert-danger w-100 mb-3">
+        <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+        <ul>
+          <% movie.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-      <ul>
-        <% movie.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+    <div class="mb-3 w-100">
+      <%= form.label :title, t("activerecord.attributes.movie.title"), class: "form-label" %>
+      <%= form.text_field :title, class: "form-control" %>
+    </div>
+
+    <div class="mb-3 w-100">
+      <%= form.label :description, t("activerecord.attributes.movie.decription"), class: "form-label" %>
+      <%= form.text_field :description, class: "form-control" %>
+    </div>
+
+    <div class="mb-3 w-100">
+      <%= form.label :release_year, t("activerecord.attributes.movie.release_year"), class: "form-label" %>
+      <%= form.date_field :release_year, class: "form-control" %>
+    </div>
+
+    <div class="mb-3 w-100">
+      <%= form.label :photos, class: "form-label" %>
+      <%= form.file_field :photos, multiple: true, direct_upload: true, class: "form-control" %>
+    </div>
+
+    <div class="mb-3 w-100">
+      <%= form.submit t("activerecord.helpers.submit.#{movie.persisted? ? 'update' : 'create'}", model: t("activerecord.models.movie")), class: "btn btn-primary w-100" %>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :title,t("activerecord.attributes.movie.title"), style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div>
-    <%= form.label :description,t("activerecord.attributes.movie.decription"), style: "display: block" %>
-    <%= form.text_field :description %>
-  </div>
-
-  <div>
-    <%= form.label :release_year,t("activerecord.attributes.movie.release_year"), style: "display: block" %>
-    <%= form.date_field :release_year %>
-  </div>
-  
-  <div class="field">
-    <%= form.label :photos %>
-    <%= form.file_field :photos, multiple: true, direct_upload:
-    true %>
-  </div>
-
-  <div>
-    <%= form.submit t("activerecord.helpers.submit.#{movie.persisted? ? 'update' : 'create'}", model: t("activerecord.models.movie")) %>
-
-  </div>
-  
-
-<% end %>
+</div>
