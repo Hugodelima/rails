@@ -19,3 +19,32 @@ pt-BR:
       submit:
         create: "Criar %{model}"
         update: "Atualizar %{model}"
+  devise:
+    sessions:
+      new:
+        title: "Autenticação"
+        email_label: "E-mail"
+        password_label: "Senha"
+        remember_me_label: "Lembrar de mim"
+        submit_button: "Entrar"
+
+    registrations:
+      new:
+        title: "Cadastrar-se"
+        email_label: "E-mail"
+        password_label: "Senha"
+        password_confirmation_label: "Confirmar Senha"
+        minimum_password_length: "mínimo de caracteres"
+        submit_button: "Cadastrar"
+
+    passwords:
+      new:
+        title: "Esqueceu sua senha?"
+        email_label: "E-mail"
+        submit_button: "Enviar instruções para redefinir a senha"
+        
+    errors:
+      messages:
+        invalid_email_or_password: "E-mail ou senha inválidos"
+        blank: "%{attribute} não pode ficar em branco"
+        too_short: "%{attribute} é muito curto (mínimo de %{count} caracteres)"
